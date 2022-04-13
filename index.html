@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="entry-screen">
+      <img src="Images/logo 2.png" />
+      <div class="input-name">
+        <input type="text" id="userNameInput" value="Digite seu nome" />
+        <p></p>
+        <button onclick="handleEnterClick()">Entrar</button>
+      </div>
+    </div>
     <div class="top-bar">
       <img src="Images/logo 1.png" />
       <ion-icon name="people"></ion-icon>
@@ -22,5 +30,6 @@
     </div>
   </body>
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="script.js"></script>
 </html>
