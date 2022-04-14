@@ -1,4 +1,5 @@
 let userName;
+let userNameInput;
 function userRequest(name) {
   userName = {
     name,
@@ -31,6 +32,16 @@ function getMessage() {
   }, 3000);
 }
 
+function sendMessage() {
+  const from = userNameInput;
+  const to = "Todos";
+  const text = document.querySelector("#sendText").value;
+  const type = "message";
+  const sendMessage = { from, to, text, type };
+  axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", sendMessage);
+  document.querySelector("#sendText").value = "Escreva aqui...";
+}
+
 function processResponse(response) {
   const messages = response.data;
   let message = document.querySelector(".msg-box");
@@ -56,11 +67,14 @@ function processResponse(response) {
 }
 
 function handleEnterClick() {
-  const userNameInput = document.querySelector("#userNameInput").value;
+  userNameInput = document.querySelector("#userNameInput").value;
   userRequest(userNameInput);
   getMessage();
 }
 
-function clearInput() {
+function clearInputName() {
   document.querySelector("#userNameInput").value = "";
+}
+function clearInputText() {
+  document.querySelector("#sendText").value = "";
 }

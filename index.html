@@ -13,7 +13,7 @@
       <img src="Images/logo 2.png" />
       <div class="input-name">
         <input
-          onclick="clearInput()"
+          onclick="clearInputName()"
           type="text"
           id="userNameInput"
           value="Digite seu nome"
@@ -29,9 +29,14 @@
     <div class="container">
       <div class="msg-box"></div>
     </div>
-    <div class="bottom-bar">
-      <input type="text" />
-      <ion-icon name="paper-plane-outline"></ion-icon>
+    <div class="botton-bar">
+      <input
+        type="text"
+        id="sendText"
+        value="Escreva aqui..."
+        onclick="clearInputText()"
+      />
+      <ion-icon onclick="sendMessage()" name="paper-plane-outline"></ion-icon>
     </div>
   </body>
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
