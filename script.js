@@ -24,30 +24,33 @@ function changeName(error) {
 }
 
 function getMessage() {
-  axios
-    .get("https://mock-api.driven.com.br/api/v6/uol/messages")
-    .then(processResponse);
+  setInterval(function () {
+    axios
+      .get("https://mock-api.driven.com.br/api/v6/uol/messages")
+      .then(processResponse);
+  }, 3000);
 }
 
 function processResponse(response) {
   const messages = response.data;
   let message = document.querySelector(".msg-box");
+  message.innerHTML = "";
   for (let i = 1; i < messages.length; i++) {
     if (messages[i].type === "status") {
       message.innerHTML += `
-      <div class="gray-back">
-        <span class="font-grey">(${messages[i].time})</span>&nbsp<span class="strong">${messages[i].from}</span>&nbsp
-        para &nbsp<span class="strong">${messages[i].to}</span>:&nbsp<span>${messages[i].text}</span>
-      </div>
-      `;
+        <div class="gray-back">
+          <span class="font-grey">(${messages[i].time})</span>&nbsp<span class="strong">${messages[i].from}</span>&nbsp
+          para &nbsp<span class="strong">${messages[i].to}</span>:&nbsp<span>${messages[i].text}</span>
+        </div>
+        `;
     }
     if (messages[i].type === "message") {
       message.innerHTML += `
-      <div class="white-back">
-        <span class="font-grey">(${messages[i].time})</span>&nbsp<span class="strong">${messages[i].from}</span>&nbsp
-        para &nbsp<span class="strong">${messages[i].to}</span>:&nbsp<span>${messages[i].text}</span>
-      </div>
-      `;
+        <div class="white-back">
+          <span class="font-grey">(${messages[i].time})</span>&nbsp<span class="strong">${messages[i].from}</span>&nbsp
+          para &nbsp<span class="strong">${messages[i].to}</span>:&nbsp<span>${messages[i].text}</span>
+        </div>
+        `;
     }
   }
 }
