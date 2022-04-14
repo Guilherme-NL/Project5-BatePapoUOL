@@ -12,7 +12,12 @@
     <div class="entry-screen">
       <img src="Images/logo 2.png" />
       <div class="input-name">
-        <input type="text" id="userNameInput" value="Digite seu nome" />
+        <input
+          onclick="clearInput()"
+          type="text"
+          id="userNameInput"
+          value="Digite seu nome"
+        />
         <p></p>
         <button onclick="handleEnterClick()">Entrar</button>
       </div>
@@ -22,7 +27,7 @@
       <ion-icon name="people"></ion-icon>
     </div>
     <div class="container">
-      <div class="msg-box">Oiii</div>
+      <div class="msg-box"></div>
     </div>
     <div class="bottom-bar">
       <input type="text" />

@@ -42,6 +42,10 @@ body {
   font-size: 18px;
   color: #aeaeae;
 }
+.input-name > p {
+  margin: 5px;
+  color: rgba(187, 5, 5, 0.836);
+}
 .input-name > button {
   width: 109px;
   height: 45px;
@@ -84,17 +88,35 @@ body {
   justify-content: space-between;
   padding: 20px;
 }
+
 ion-icon {
   font-size: 40px;
 }
+
 .container {
   margin-top: 100px;
 }
+
 .msg-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.msg-box > div {
   height: 40px;
   width: 100%;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
   padding: 10px;
+  margin: 2px;
+}
+.white-back {
+  background-color: #ffffff;
+}
+.gray-back {
+  background-color: #dcdcdc;
+}
+.strong {
+  font-weight: bold;
+}
+.font-grey {
+  color: #aeaeae;
 }

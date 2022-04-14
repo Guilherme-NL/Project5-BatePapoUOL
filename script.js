@@ -1,32 +1,4 @@
-// let chat = [];
-
-// function serverChat() {
-//   const promise = axios.get("");
-//   console.log(promise);
-//   //callback
-//   promise.then(dataLoad);
-// }
-// function dataLoad(response) {
-//   console.log(response.data);
-//   chat = response.data;
-//   renderizarChat();
-// }
-
-// //puxar o nome e a msg que foi escrita no campo
-// const name = document.querySelector("").value;
-// const message = document.querySelector(".bottom-bar > input").value;
-// const newMessage = { name: name, message: message };
-
-//enviar msg para a api - depois tem puxar para o app novamente
-
-//executar depois que a promise for resolvida
-//promise.then(serverChat);
-// let promise = axios.get(
-//   "https://mock-api.driven.com.br/api/v6/uol/participants"
-// );
-//request username
 let userName;
-let userNameInput;
 function userRequest(name) {
   userName = {
     name,
@@ -52,10 +24,40 @@ function changeName(error) {
 }
 
 function getMessage() {
-  axios.get("http://mock-api.driven.com.br/api/v6/uol/messages");
+  axios
+    .get("https://mock-api.driven.com.br/api/v6/uol/messages")
+    .then(processResponse);
+}
+
+function processResponse(response) {
+  const messages = response.data;
+  let message = document.querySelector(".msg-box");
+  for (let i = 1; i < messages.length; i++) {
+    if (messages[i].type === "status") {
+      message.innerHTML += `
+      <div class="gray-back">
+        <span class="font-grey">(${messages[i].time})</span>&nbsp<span class="strong">${messages[i].from}</span>&nbsp
+        para &nbsp<span class="strong">${messages[i].to}</span>:&nbsp<span>${messages[i].text}</span>
+      </div>
+      `;
+    }
+    if (messages[i].type === "message") {
+      message.innerHTML += `
+      <div class="white-back">
+        <span class="font-grey">(${messages[i].time})</span>&nbsp<span class="strong">${messages[i].from}</span>&nbsp
+        para &nbsp<span class="strong">${messages[i].to}</span>:&nbsp<span>${messages[i].text}</span>
+      </div>
+      `;
+    }
+  }
 }
 
 function handleEnterClick() {
-  userNameInput = document.querySelector("#userNameInput").value;
+  const userNameInput = document.querySelector("#userNameInput").value;
   userRequest(userNameInput);
+  getMessage();
+}
+
+function clearInput() {
+  document.querySelector("#userNameInput").value = "";
 }
