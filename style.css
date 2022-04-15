@@ -2,10 +2,10 @@
 
 body {
   background-color: #e5e5e5;
+  font-family: "Roboto", sans-serif;
 }
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 .entry-screen {
   width: 100%;
@@ -55,8 +55,61 @@ body {
   color: #696969;
   font-size: 18px;
 }
+.side-bar {
+  height: 100%;
+  width: 259px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 3;
+  padding: 20px;
+}
+.opacity {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.side-bar > p {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+.side-bar ion-icon {
+  font-size: 30px;
+  margin-right: 8px;
+}
+.all,
+.public,
+.private {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.all > div,
+.public > div,
+.private > div {
+  display: flex;
+  align-items: center;
+}
+.all .check,
+.public .check,
+.private .check {
+  font-size: 15px;
+  color: #28bb25;
+}
 .hide {
   display: none;
+}
+.selectedContact .check,
+.selectedVisibility .check {
+  display: initial;
 }
 .top-bar {
   height: 80px;

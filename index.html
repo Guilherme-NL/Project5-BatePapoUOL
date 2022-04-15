@@ -22,9 +22,52 @@
         <button onclick="handleEnterClick()">Entrar</button>
       </div>
     </div>
+    <!-- Side bar section-->
+    <div onclick="hideSideBar()" class="opacity hide"></div>
+    <div class="side-bar hide">
+      <p>Escolha um contato para enviar mensagem:</p>
+      <div class="contacts">
+        <!-- send message for all-->
+        <div class="all" onclick="selectContact(this)">
+          <div>
+            <ion-icon name="people"></ion-icon>
+            <p>Todos</p>
+          </div>
+          <div>
+            <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
+          </div>
+        </div>
+        <!-- send message for someone-->
+        <!-- will be write here-->
+      </div>
+      <p>Escolha a visibilidade:</p>
+      <div class="visibility">
+        <!-- visibility public-->
+        <div class="public" onclick="selectVisibility(this)">
+          <div>
+            <ion-icon name="lock-open"></ion-icon>
+            <p>Público</p>
+          </div>
+          <div>
+            <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
+          </div>
+        </div>
+        <!-- visibility private-->
+        <div class="private" onclick="selectVisibility(this)"">
+          <div>
+            <ion-icon name="lock-closed"></ion-icon>
+            <p>Reservadamente</p>
+          </div>
+          <div>
+            <ion-icon class="check hide" name="checkmark-sharp"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of side bar section-->
     <div class="top-bar">
       <img src="Images/logo 1.png" />
-      <ion-icon name="people"></ion-icon>
+      <ion-icon onclick="showSideBar()" name="people"></ion-icon>
     </div>
     <div class="container">
       <div class="msg-box"></div>

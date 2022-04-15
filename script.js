@@ -70,6 +70,36 @@ function handleEnterClick() {
   userNameInput = document.querySelector("#userNameInput").value;
   userRequest(userNameInput);
   getMessage();
+  defaultSetting();
+}
+function defaultSetting() {
+  document.querySelector(".all").classList.add("selectedContact");
+  document.querySelector(".public").classList.add("selectedVisibility");
+}
+
+function showSideBar() {
+  document.querySelector(".opacity").classList.remove("hide");
+  document.querySelector(".side-bar").classList.remove("hide");
+}
+function hideSideBar() {
+  document.querySelector(".opacity").classList.add("hide");
+  document.querySelector(".side-bar").classList.add("hide");
+}
+
+function selectContact(el) {
+  const selectedContact = document.querySelector(".selectedContact");
+  if (selectedContact !== null) {
+    selectedContact.classList.remove("selectedContact");
+  }
+  el.classList.add("selectedContact");
+}
+
+function selectVisibility(el) {
+  const selectedVisibility = document.querySelector(".selectedVisibility");
+  if (selectedVisibility !== null) {
+    selectedVisibility.classList.remove("selectedVisibility");
+  }
+  el.classList.add("selectedVisibility");
 }
 
 function clearInputName() {
