@@ -80,7 +80,10 @@ function processResponse(response) {
         </div>
         `;
     }
-    if (messages[i].to === userNameInput) {
+    if (
+      messages[i].to === userNameInput ||
+      messages[i].from === userNameInput
+    ) {
       if (messages[i].type === "private_message") {
         message.innerHTML += `
           <div class="pink-back">
@@ -204,3 +207,24 @@ function clearInputName() {
 function clearInputText() {
   document.querySelector("#sendText").value = "";
 }
+
+function sendMessageEnter() {
+  const input = document.querySelector("#sendText");
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      sendMessage();
+      document.querySelector("#sendText").value = "";
+    }
+  });
+}
+sendMessageEnter();
+
+function sendNameEnter() {
+  const input = document.querySelector("#userNameInput");
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      handleEnterClick();
+    }
+  });
+}
+sendNameEnter();

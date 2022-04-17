@@ -132,7 +132,7 @@ body {
   width: 75px;
   height: 53px;
 }
-.botton-bar {
+.bottom-bar {
   height: 80px;
   width: 100%;
   background-color: #ffffff;
@@ -145,7 +145,7 @@ body {
   justify-content: space-between;
   padding: 20px;
 }
-.botton-bar > input {
+.bottom-bar > input {
   border: 1px solid #ffffff;
   width: 145px;
   height: 30px;
