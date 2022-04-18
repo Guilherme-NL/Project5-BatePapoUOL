@@ -169,6 +169,7 @@ ion-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-wrap: break-word;
 }
 .msg-box > div {
   height: auto;
