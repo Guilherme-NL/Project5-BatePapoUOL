@@ -56,7 +56,9 @@ function sendMessage() {
   const sendMessage = { from, to, text, type };
   axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", sendMessage);
   document.querySelector("#sendText").value = "Escreva aqui...";
-  getMessage();
+  axios
+    .get("https://mock-api.driven.com.br/api/v6/uol/messages")
+    .then(processResponse);
 }
 
 function processResponse(response) {

@@ -63,8 +63,9 @@ body {
   top: 0;
   right: 0;
   background-color: #ffffff;
-  z-index: 3;
+  z-index: 1;
   padding: 20px;
+  overflow-y: scroll;
 }
 .opacity {
   height: 100%;
@@ -73,7 +74,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
 }
 .side-bar > p {
   font-size: 16px;
